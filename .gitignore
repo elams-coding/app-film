@@ -6,7 +6,7 @@ out/
 
 # Exclude files from this folder
 .idea/
-.vs/
+.vscode/
 
 # Compiled class file
 *.class
