@@ -1,3 +1,13 @@
+# IntelliJ files
+*.iml
+
+# Excluded folder
+out/
+
+# Exclude files from this folder
+.idea/
+.vs/
+
 # Compiled class file
 *.class
 
