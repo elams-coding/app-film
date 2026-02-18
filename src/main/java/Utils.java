@@ -1,6 +1,15 @@
 import java.util.Scanner;
 
+/**
+ * Utility class providing helper methods for user input, display formatting,
+ * and text manipulation.
+ * This class cannot be instantiated and provides only static methods.
+ * 
+ * The class uses a static Scanner instance for reading user input from the
+ * standard input stream.
+ */
 public final class Utils {
+
     private static final Scanner sc;
 
     static {
@@ -10,7 +19,18 @@ public final class Utils {
     private Utils() {
     }
 
-    public static int saisirEntier(String message, int min, int max) {
+    /**
+     * Prompts the user to enter an integer within a specified range and validates
+     * the input.
+     * Continuously requests input until a valid integer within the range [min, max)
+     * is provided.
+     * 
+     * @param message the prompt message to display to the user
+     * @param min     the minimum acceptable value (inclusive)
+     * @param max     the maximum acceptable value (exclusive)
+     * @return a valid integer within the range [min, max)
+     */
+    public static int inputInteger(String message, int min, int max) {
         int number;
         while (true) {
             System.out.print(message);
@@ -32,10 +52,23 @@ public final class Utils {
         }
     }
 
+    /**
+     * Displays a title to the standard output.
+     * 
+     * @param title the title text to display
+     */
     public static void displayTitle(String title) {
         displayTitle(title, null);
     }
 
+    /**
+     * Displays a title with an optional subtitle to the standard output.
+     * Both title and subtitle are followed by a blank line.
+     * 
+     * @param title    the title text to display
+     * @param subtitle the subtitle text to display, or null if no subtitle is
+     *                 needed
+     */
     public static void displayTitle(String title, String subtitle) {
         System.out.println(title);
         if (subtitle != null) {
@@ -44,14 +77,31 @@ public final class Utils {
         System.out.println();
     }
 
+    /**
+     * Displays the provided text options to the standard output.
+     * 
+     * @param textOptions the options text to display
+     */
     public static void displayOptions(StringBuilder textOptions) {
         System.out.println(textOptions);
     }
 
+    /**
+     * Appends a new line of text to a StringBuilder with proper line separation.
+     * If the StringBuilder is not empty, a line separator is added before the new
+     * line.
+     * 
+     * @param text      the StringBuilder to append to
+     * @param addedLine the line of text to append
+     */
     public static void addLineToText(StringBuilder text, String addedLine) {
+        if (text == null || addedLine == null) {
+            return;
+        }
         if (text.length() > 0) {
             text.append(System.lineSeparator());
         }
         text.append(addedLine);
     }
+
 }
