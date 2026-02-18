@@ -1,28 +1,19 @@
-class App {
-    private static final String TITLE = "MovieReviewer";
-    private static final String SUBTITLE = "Get info about your movie";
-    private static String messageOptions;
 
-    private App() {
-        messageOptions = "\n(1) Lire fichier CSV";
-        messageOptions += "\n(2) Quittez";
+class App {
+    private static final String TITLE;
+    private static final String SUBTITLE;
+    private static final StringBuilder MESSAGE_OPTIONS;
+
+    static {
+        TITLE = "MovieReviewer";
+        SUBTITLE = "Get info about your movie";
+        MESSAGE_OPTIONS = new StringBuilder();
     }
 
     public static void main(String[] args) {
-        displayTitle();
-        displayOptions();
-    }
-
-    private static void displayTitle() {
-        System.out.println(TITLE);
-        System.out.println(SUBTITLE);
-    }
-
-    static void displayOptions() {
-        System.out.println(messageOptions);
-    }
-
-    public static void setMessageOptions(String newMessageOptions) {
-        messageOptions = newMessageOptions;
+        Utils.displayTitle(TITLE, SUBTITLE);
+        Utils.addLineToText(MESSAGE_OPTIONS, "(1) Choix du fichier");
+        Utils.addLineToText(MESSAGE_OPTIONS, "(2) Quitter");
+        Utils.displayOptions(MESSAGE_OPTIONS);
     }
 }
