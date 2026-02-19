@@ -58,7 +58,7 @@ public final class Utils {
      * @param title the title text to display
      */
     public static void displayTitle(String title) {
-        displayTitle(title, null);
+        displayTitleAndSubtitle(title, null);
     }
 
     /**
@@ -69,7 +69,7 @@ public final class Utils {
      * @param subtitle the subtitle text to display, or null if no subtitle is
      *                 needed
      */
-    public static void displayTitle(String title, String subtitle) {
+    public static void displayTitleAndSubtitle(String title, String subtitle) {
         System.out.println(title);
         if (subtitle != null) {
             System.out.println(subtitle);
@@ -80,28 +80,10 @@ public final class Utils {
     /**
      * Displays the provided text options to the standard output.
      * 
-     * @param textOptions the options text to display
+     * @param options the options text to display
      */
-    public static void displayOptions(StringBuilder textOptions) {
-        System.out.println(textOptions);
-    }
-
-    /**
-     * Appends a new line of text to a StringBuilder with proper line separation.
-     * If the StringBuilder is not empty, a line separator is added before the new
-     * line.
-     * 
-     * @param text      the StringBuilder to append to
-     * @param addedLine the line of text to append
-     */
-    public static void addLineToText(StringBuilder text, String addedLine) {
-        if (text == null || addedLine == null) {
-            return;
-        }
-        if (text.length() > 0) {
-            text.append(System.lineSeparator());
-        }
-        text.append(addedLine);
+    public static void displayOptions(String options) {
+        System.out.println(options);
     }
 
 }
