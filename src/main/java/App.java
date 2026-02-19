@@ -47,6 +47,7 @@ class App {
 
     public static void main(String[] args) {
         start();
+        Utils.closeScanner();
     }
 
     /**
@@ -102,8 +103,8 @@ class App {
                 quit();
                 return false;
             }
+            default -> throw new IllegalStateException("Invalid choice: " + choice);
         }
-        throw new IllegalStateException("Invalid choice: " + choice);
     }
 
     private static void quit() {

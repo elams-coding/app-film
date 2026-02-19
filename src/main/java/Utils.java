@@ -86,4 +86,8 @@ public final class Utils {
         System.out.println(options);
     }
 
+    public static void closeScanner() {
+        sc.close();
+    }
+
 }
