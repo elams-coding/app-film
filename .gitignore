@@ -3,6 +3,7 @@
 
 # Excluded folder
 out/
+target/
 
 # Exclude files from this folder
 .idea/
