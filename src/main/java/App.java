@@ -80,7 +80,7 @@ class App {
     }
 
     private static int chooseOption() {
-        return Utils.inputInteger("Tap 1 or 2 : ", 1, 3);
+        return Utils.inputInteger("Enter 1 or 2 : ", 1, 3);
     }
 
     /**
