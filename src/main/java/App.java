@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 /**
  * App is the main entry point of the MovieReviewer application.
@@ -47,7 +48,6 @@ class App {
 
     public static void main(String[] args) {
         start();
-        Utils.closeScanner();
     }
 
     /**
@@ -80,7 +80,12 @@ class App {
     }
 
     private static int chooseOption() {
-        return Utils.inputInteger("Enter 1 or 2 : ", 1, 3);
+        int res;
+        try (Scanner sc = new Scanner(System.in)) {
+            res = Utils.inputInteger(sc, "Enter 1 or 2 : ", 1, 3);
+        }
+
+        return res;
     }
 
     /**
