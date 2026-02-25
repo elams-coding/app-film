@@ -10,12 +10,6 @@ import java.util.Scanner;
  */
 public final class Utils {
 
-    private static final Scanner sc;
-
-    static {
-        sc = new Scanner(System.in);
-    }
-
     private Utils() {
     }
 
@@ -25,12 +19,13 @@ public final class Utils {
      * Continuously requests input until a valid integer within the range [min, max)
      * is provided.
      * 
+     * @param sc      the Scanner to use for the input
      * @param message the prompt message to display to the user
      * @param min     the minimum acceptable value (inclusive)
      * @param max     the maximum acceptable value (exclusive)
      * @return a valid integer within the range [min, max)
      */
-    public static int inputInteger(String message, int min, int max) {
+    public static int inputInteger(Scanner sc, String message, int min, int max) {
         int number;
         while (true) {
             System.out.print(message);
@@ -84,10 +79,6 @@ public final class Utils {
      */
     public static void displayOptions(String options) {
         System.out.println(options);
-    }
-
-    public static void closeScanner() {
-        sc.close();
     }
 
 }
