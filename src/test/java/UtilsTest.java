@@ -1,3 +1,5 @@
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,16 +13,24 @@ public class UtilsTest {
     private static final int MINIMUM;
     private static final int MAXIMUM;
     private static final String MESSAGE;
+    private static final String TITLE;
+    private static final String SUBTITLE;
+    private ByteArrayOutputStream outContent;
+    private PrintStream originalOut;
 
     static {
         MINIMUM = 1;
         MAXIMUM = 10;
         MESSAGE = "Enter number: ";
+        TITLE = "MovieReviewer";
+        SUBTITLE = "Get info about your movie";
     }
 
     @BeforeEach
     void setUp() {
         mockScanner = mock(Scanner.class);
+        outContent = new ByteArrayOutputStream();
+        originalOut = System.out;
     }
 
     @Test
@@ -93,6 +103,52 @@ public class UtilsTest {
 
         int result = Utils.inputInteger(mockScanner, MESSAGE, MINIMUM, MAXIMUM);
         assertEquals(Integer.parseInt(testedValue), result);
+    }
+
+    @Test
+    void testDisplayTitle() {
+        // capture System.out
+        System.setOut(new PrintStream(outContent));
+
+        try {
+            Utils.displayTitle(TITLE);
+
+            String expectedOutput = TITLE + System.lineSeparator() + System.lineSeparator();
+            assertEquals(expectedOutput, outContent.toString());
+        } finally {
+            // restore original System.out
+            System.setOut(originalOut);
+        }
+    }
+
+    @Test
+    void testDisplayTitleAndSubtitle() {
+        System.setOut(new PrintStream(outContent));
+
+        try {
+            Utils.displayTitleAndSubtitle(TITLE, SUBTITLE);
+
+            String expectedOutput = TITLE + System.lineSeparator() +
+                    SUBTITLE + System.lineSeparator() + System.lineSeparator();
+
+            assertEquals(expectedOutput, outContent.toString());
+        } finally {
+            System.setOut(originalOut);
+        }
+    }
+
+    @Test
+    void testDisplayOptions() {
+        System.setOut(new PrintStream(outContent));
+
+        try {
+            Utils.displayOptions("1. Option A");
+
+            String expectedOutput = "1. Option A" + System.lineSeparator();
+            assertEquals(expectedOutput, outContent.toString());
+        } finally {
+            System.setOut(originalOut);
+        }
     }
 
 }
