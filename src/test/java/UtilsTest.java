@@ -7,7 +7,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class UtilsTest {
-    private Scanner mock_scanner;
+    private Scanner mockScanner;
     private static final int MINIMUM;
     private static final int MAXIMUM;
     private static final String MESSAGE;
@@ -20,26 +20,26 @@ public class UtilsTest {
 
     @BeforeEach
     void setUp() {
-        mock_scanner = mock(Scanner.class);
+        mockScanner = mock(Scanner.class);
     }
 
     @Test
     void testInputIntegerValidInput() {
         String testedValue = "5";
         // simulate user's input
-        when(mock_scanner.nextLine()).thenReturn(testedValue);
+        when(mockScanner.nextLine()).thenReturn(testedValue);
 
         // test the method with the mock
-        int result = Utils.inputInteger(mock_scanner, MESSAGE, MINIMUM, MAXIMUM);
+        int result = Utils.inputInteger(mockScanner, MESSAGE, MINIMUM, MAXIMUM);
         assertEquals(Integer.parseInt(testedValue), result);
     }
 
     @Test
     void testInputIntegerInvalidInput() {
         String testedValue = "6";
-        when(mock_scanner.nextLine()).thenReturn("abc").thenReturn(testedValue);
+        when(mockScanner.nextLine()).thenReturn("abc").thenReturn(testedValue);
 
-        int result = Utils.inputInteger(mock_scanner, MESSAGE, MINIMUM, MAXIMUM);
+        int result = Utils.inputInteger(mockScanner, MESSAGE, MINIMUM, MAXIMUM);
         assertEquals(Integer.parseInt(testedValue), result);
     }
 
@@ -47,9 +47,9 @@ public class UtilsTest {
     void testInputIntegerWhiteSpace() {
         String testedValue = "7";
         String space = " ";
-        when(mock_scanner.nextLine()).thenReturn(space).thenReturn(testedValue);
+        when(mockScanner.nextLine()).thenReturn(space).thenReturn(testedValue);
 
-        int result = Utils.inputInteger(mock_scanner, MESSAGE, MINIMUM, MAXIMUM);
+        int result = Utils.inputInteger(mockScanner, MESSAGE, MINIMUM, MAXIMUM);
         assertEquals(Integer.parseInt(testedValue), result);
     }
 
@@ -57,9 +57,9 @@ public class UtilsTest {
     void testInputIntegerEmpty() {
         String testedValue = "8";
         String emptyString = "";
-        when(mock_scanner.nextLine()).thenReturn(emptyString).thenReturn(testedValue);
+        when(mockScanner.nextLine()).thenReturn(emptyString).thenReturn(testedValue);
 
-        int result = Utils.inputInteger(mock_scanner, MESSAGE, MINIMUM, MAXIMUM);
+        int result = Utils.inputInteger(mockScanner, MESSAGE, MINIMUM, MAXIMUM);
         assertEquals(Integer.parseInt(testedValue), result);
     }
 
@@ -69,9 +69,9 @@ public class UtilsTest {
         // simulate user's input
         // first entry minimum value - 1 (0)
         // then minimum value (1)
-        when(mock_scanner.nextLine()).thenReturn(String.valueOf(MINIMUM - 1)).thenReturn(testedValue);
+        when(mockScanner.nextLine()).thenReturn(String.valueOf(MINIMUM - 1)).thenReturn(testedValue);
 
-        int result = Utils.inputInteger(mock_scanner, MESSAGE, MINIMUM, MAXIMUM);
+        int result = Utils.inputInteger(mockScanner, MESSAGE, MINIMUM, MAXIMUM);
         assertEquals(Integer.parseInt(testedValue), result);
     }
 
@@ -81,9 +81,9 @@ public class UtilsTest {
         // simulate user's input
         // first entry maximum value (10)
         // then maximum value - 1 (9)
-        when(mock_scanner.nextLine()).thenReturn(String.valueOf(MAXIMUM)).thenReturn(testedValue);
+        when(mockScanner.nextLine()).thenReturn(String.valueOf(MAXIMUM)).thenReturn(testedValue);
 
-        int result = Utils.inputInteger(mock_scanner, MESSAGE, MINIMUM, MAXIMUM);
+        int result = Utils.inputInteger(mockScanner, MESSAGE, MINIMUM, MAXIMUM);
         assertEquals(Integer.parseInt(testedValue), result);
     }
 
