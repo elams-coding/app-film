@@ -24,7 +24,7 @@ public class UtilsTest {
     }
 
     @Test
-    public void testInputIntegerValidInput() {
+    void testInputIntegerValidInput() {
         String testedValue = "5";
         // simulate user's input
         when(mock_scanner.nextLine()).thenReturn(testedValue);
@@ -35,7 +35,7 @@ public class UtilsTest {
     }
 
     @Test
-    public void testInputIntegerInvalidInput() {
+    void testInputIntegerInvalidInput() {
         String testedValue = "6";
         when(mock_scanner.nextLine()).thenReturn("abc").thenReturn(testedValue);
 
@@ -44,7 +44,7 @@ public class UtilsTest {
     }
 
     @Test
-    public void testInputIntegerWhiteSpace() {
+    void testInputIntegerWhiteSpace() {
         String testedValue = "7";
         String space = " ";
         when(mock_scanner.nextLine()).thenReturn(space).thenReturn(testedValue);
@@ -54,7 +54,7 @@ public class UtilsTest {
     }
 
     @Test
-    public void testInputIntegerEmpty() {
+    void testInputIntegerEmpty() {
         String testedValue = "8";
         String emptyString = "";
         when(mock_scanner.nextLine()).thenReturn(emptyString).thenReturn(testedValue);
@@ -64,7 +64,7 @@ public class UtilsTest {
     }
 
     @Test
-    public void testInputMinValue() {
+    void testInputMinValue() {
         String testedValue = String.valueOf(MINIMUM);
         // simulate user's input
         // first entry minimum value - 1 (0)
@@ -76,7 +76,7 @@ public class UtilsTest {
     }
 
     @Test
-    public void testInputMaxValue() {
+    void testInputMaxValue() {
         String testedValue = String.valueOf(MAXIMUM - 1);
         // simulate user's input
         // first entry maximum value (10)
