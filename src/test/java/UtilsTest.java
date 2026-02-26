@@ -25,7 +25,7 @@ public class UtilsTest {
 
     @Test
     void testInputIntegerValidInput() {
-        String testedValue = "5";
+        String testedValue = "4";
         // simulate user's input
         when(mockScanner.nextLine()).thenReturn(testedValue);
 
@@ -36,7 +36,7 @@ public class UtilsTest {
 
     @Test
     void testInputIntegerInvalidInput() {
-        String testedValue = "6";
+        String testedValue = "5";
         when(mockScanner.nextLine()).thenReturn("abc").thenReturn(testedValue);
 
         int result = Utils.inputInteger(mockScanner, MESSAGE, MINIMUM, MAXIMUM);
@@ -45,7 +45,7 @@ public class UtilsTest {
 
     @Test
     void testInputIntegerWhiteSpace() {
-        String testedValue = "7";
+        String testedValue = "6";
         String space = " ";
         when(mockScanner.nextLine()).thenReturn(space).thenReturn(testedValue);
 
@@ -55,12 +55,20 @@ public class UtilsTest {
 
     @Test
     void testInputIntegerEmpty() {
-        String testedValue = "8";
+        String testedValue = "7";
         String emptyString = "";
         when(mockScanner.nextLine()).thenReturn(emptyString).thenReturn(testedValue);
 
         int result = Utils.inputInteger(mockScanner, MESSAGE, MINIMUM, MAXIMUM);
         assertEquals(Integer.parseInt(testedValue), result);
+    }
+
+    @Test
+    void testInputIntegerWithSurroundingSpaces() {
+        when(mockScanner.nextLine()).thenReturn(" 8 ");
+
+        int result = Utils.inputInteger(mockScanner, MESSAGE, MINIMUM, MAXIMUM);
+        assertEquals(8, result);
     }
 
     @Test
