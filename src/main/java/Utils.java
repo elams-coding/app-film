@@ -29,7 +29,7 @@ public final class Utils {
         int number;
         while (true) {
             System.out.print(message);
-            String input = sc.nextLine();
+            String input = sc.nextLine().trim();
 
             try {
                 number = Integer.parseInt(input);
