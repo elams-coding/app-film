@@ -27,6 +27,7 @@ public class UtilsTest {
         SUBTITLE = "Get info about your movie";
     }
 
+    @SuppressWarnings("unused")
     @BeforeEach
     void setUp() {
         mockScanner = mock(Scanner.class);
@@ -34,6 +35,7 @@ public class UtilsTest {
         originalOut = System.out;
     }
 
+    @SuppressWarnings("unused")
     @AfterEach
     void tearDown() {
         System.setOut(originalOut);
