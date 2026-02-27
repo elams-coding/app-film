@@ -97,7 +97,7 @@ final class App {
         System.out.println();
         switch (choice) {
             case 1 -> {
-                // todo : implement the next step
+                Reader.start();
                 return true;
             }
             case 2 -> {
