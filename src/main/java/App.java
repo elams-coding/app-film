@@ -27,11 +27,12 @@ import java.util.Scanner;
  * choice,
  * or recursively requests re-entry if an invalid choice is made
  */
-class App {
+final class App {
 
     private static final String TITLE;
     private static final String SUBTITLE;
     private static final String MESSAGE_OPTIONS;
+    private static final Scanner SCANNER;
 
     private App() {
     }
@@ -43,7 +44,7 @@ class App {
                 (1) Choose file
                 (2) Quit
                 """;
-
+        SCANNER = new Scanner(System.in);
     }
 
     public static void main(String[] args) {
@@ -80,12 +81,7 @@ class App {
     }
 
     private static int chooseOption() {
-        int res;
-        try (Scanner sc = new Scanner(System.in)) {
-            res = Utils.inputInteger(sc, "Enter 1 or 2 : ", 1, 3);
-        }
-
-        return res;
+        return Utils.inputInteger(SCANNER, "Enter 1 or 2 : ", 1, 3);
     }
 
     /**
@@ -114,6 +110,7 @@ class App {
 
     private static void quit() {
         System.out.println("Bye");
+        SCANNER.close();
     }
 
 }
