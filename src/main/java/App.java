@@ -108,6 +108,7 @@ final class App {
         }
     }
 
+    @SuppressWarnings("ConvertToTryWithResources")
     private static void quit() {
         System.out.println("Bye");
         SCANNER.close();
