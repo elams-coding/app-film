@@ -11,21 +11,13 @@ import static org.mockito.Mockito.when;
 
 public class UtilsTest {
     private Scanner mockScanner;
-    private static final int MINIMUM;
-    private static final int MAXIMUM;
-    private static final String MESSAGE;
-    private static final String TITLE;
-    private static final String SUBTITLE;
+    private static final int MINIMUM = 1;
+    private static final int MAXIMUM = 10;
+    private static final String MESSAGE = "Enter number: ";
+    private static final String TITLE = "MovieReviewer";
+    private static final String SUBTITLE = "Get info about your movie";
     private ByteArrayOutputStream outContent;
     private PrintStream originalOut;
-
-    static {
-        MINIMUM = 1;
-        MAXIMUM = 10;
-        MESSAGE = "Enter number: ";
-        TITLE = "MovieReviewer";
-        SUBTITLE = "Get info about your movie";
-    }
 
     @SuppressWarnings("unused")
     @BeforeEach

@@ -29,22 +29,15 @@ import java.util.Scanner;
  */
 final class App {
 
-    private static final String TITLE;
-    private static final String SUBTITLE;
-    private static final String MESSAGE_OPTIONS;
-    private static final Scanner SCANNER;
+    private static final String TITLE = "MovieReviewer";;
+    private static final String SUBTITLE = "Get info about your movie";;
+    private static final String MESSAGE_OPTIONS = """
+            (1) Choose file
+            (2) Quit
+            """;
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     private App() {
-    }
-
-    static {
-        TITLE = "MovieReviewer";
-        SUBTITLE = "Get info about your movie";
-        MESSAGE_OPTIONS = """
-                (1) Choose file
-                (2) Quit
-                """;
-        SCANNER = new Scanner(System.in);
     }
 
     public static void main(String[] args) {
