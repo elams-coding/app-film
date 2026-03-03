@@ -50,7 +50,7 @@ final class App {
      * Populates the MESSAGE_OPTIONS with available choices and displays them to the
      * user.
      */
-    private static void initialisation() {
+    private static void initialization() {
         Utils.displayTitleAndSubtitle(TITLE, SUBTITLE);
         Utils.displayOptions(MESSAGE_OPTIONS);
     }
@@ -67,7 +67,7 @@ final class App {
         boolean running = true;
 
         while (running) {
-            initialisation();
+            initialization();
             int choice = chooseOption();
             running = executeChoice(choice);
         }

@@ -6,7 +6,7 @@ public class Reader {
     private Reader() {
     }
 
-    private static void initialisation() {
+    private static void initialization() {
         // TODO: display title
         // TODO: display files
     }
